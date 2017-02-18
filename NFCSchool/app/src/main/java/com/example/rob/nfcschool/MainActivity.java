@@ -33,6 +33,7 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,6 +45,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -101,9 +103,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void writeToFile(String myData) {
         try {
+            //String[] myDataList = myData.split(" ");
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("totalMessage.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(myData);
+            //BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+            /*for (String word: myDataList) {
+                writer.write(myDataList);
+                writer.newLine();
+            }*/
+
             outputStreamWriter.close();
+            //writer.close();
         } catch (IOException e) {
             Log.v("MyActivity", e.toString());
         }
@@ -124,6 +134,11 @@ public class MainActivity extends AppCompatActivity {
 
                 while ((tempString = bufferedReader.readLine()) != null) {
                     stringBuilder.append(tempString);
+
+                    if((tempString = bufferedReader.readLine()) == " "){
+                        //append stringBuilder to totalMessageList;
+                        //stringBuilder = "";
+                    }
                 }
                 inputStream.close();
                 result = stringBuilder.toString();
