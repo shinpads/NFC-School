@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+        //TODO LOAD INFO FROM TEXT FILE
+        Log.i("Load file: ", readFromFile());
     }
     
     private String[] splitReadMessage(String message) {
@@ -232,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
    public void onPause(){
-       Log.i("SAVE TO TEXT", "SAVING...?");
+       Log.i("SAVE TO TEXT", getFilesDir().getAbsolutePath());
         writeToFile(homework);
         super.onPause();
 
