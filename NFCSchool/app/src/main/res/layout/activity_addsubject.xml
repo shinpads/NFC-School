@@ -1,42 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.06" />
-
-    <TextView
-        android:text="Please input your Course Code:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_weight="0.11"
-        android:textSize="25dp"
-        android:textColor="@android:color/black"/>
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_weight="0.06"
-        android:text="Course Code" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.50" />
+        android:inputType="textCapWords"
+        android:id="@+id/courseInput"
+        android:hint="@string/course"
+        android:padding="20dp"
+        android:layout_marginTop="150dp"/>
 
     <Button
-        android:text="Done!"
-        android:layout_width="match_parent"
+        android:text="@string/newCourse"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Button"
-        android:layout_weight="0.06"
-        android:background="#01a21d"/>
+        android:background="@drawable/button"
+        android:textColor="@android:color/white"
+        android:fontFamily="monospace"
+        android:textSize="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"/>
 </LinearLayout>
