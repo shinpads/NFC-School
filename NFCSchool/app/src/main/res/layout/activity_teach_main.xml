@@ -61,6 +61,6 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:id="@+id/floatingActionButtonAdd"
-        app:backgroundTint="@color/colorPrimaryDark" />
+        app:backgroundTint="@color/colorAccent" />
 
 </RelativeLayout>
