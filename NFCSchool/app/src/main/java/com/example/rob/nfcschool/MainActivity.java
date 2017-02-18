@@ -32,11 +32,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -232,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
         row.setPadding(40,20,40,20);
 
         TableLayout table = (TableLayout) findViewById(R.id.readTable);
+        //table.addView(new TextView(this));
         table.addView(row,lp);
 
     }
