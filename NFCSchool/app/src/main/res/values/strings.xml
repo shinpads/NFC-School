@@ -5,9 +5,15 @@
     <string name="class2">Math</string>
     <string name="class3">Computer Science</string>
     <string name="class4">Economics</string>
-    <string name="work1">pg4cosanbbbbbaiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinnnnnnnnnnnnnidididididididididididididididididididididid</string>
+    <string name="work1">abcdefghijklmnopqrstuvwxyz</string>
     <string name="work2">pg34</string>
     <string name="work3">pg24</string>
     <string name="work4">pg14</string>
+    <string name="roleChoice">Hello!\nWho Are You?</string>
+    <string name="teacherBtn">Teacher</string>
+    <string name="studentBtn">Student</string>
+    <string name="roachTag">Please approach an NFC tag</string>
+    <string name="course">Course</string>
+    <string name="hw">Homework</string>
 
 </resources>

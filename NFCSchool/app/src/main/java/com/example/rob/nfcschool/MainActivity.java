@@ -1,13 +1,25 @@
 package com.example.rob.nfcschool;
 
+
 import android.content.Context;
+
+import android.app.ActionBar;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+
+import android.view.Gravity;
+
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -30,12 +42,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+
     static String nfcRead;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     private GoogleApiClient client;
+    TableLayout tableLayout;
+    static String nfcRead = "";
+    private String message ="";
+    public static MainActivity mainActivity;
+    private MainActivity ma = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,20 +58,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        tableLayout = (TableLayout) findViewById(R.id.readTable);
         if (fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //TODO read NFC tag
+                    mainActivity = ma;
                     Intent intent = new Intent(MainActivity.this, ReadTag.class);
+
                     startActivity(intent);
                 }
             });
         }
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     ArrayList<String> messageList = new ArrayList<String>();
@@ -103,6 +117,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return result;
+
+    public void setMessage(String string){
+        message = string;
+    }
+    public void addItem(String message){
+        Log.i("NFC MESSAGE: ", message);
+        String[] splitMsg = splitReadMessage(message);
+        TableRow row = new TableRow(this);
+
+
+
     }
 }
 

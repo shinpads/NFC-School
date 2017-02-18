@@ -25,14 +25,9 @@ public class ReadTag extends AppCompatActivity {
         if(adapter == null){
             Toast.makeText(getApplicationContext(),"NFC NOT ENABLED",Toast.LENGTH_SHORT).show();
         }
-        if(adapter != null && adapter.isEnabled()){
-            Toast.makeText(getApplicationContext(),"NFC IS READY",Toast.LENGTH_SHORT).show();
-        }
-
     }
     @Override
     public void onNewIntent(Intent intent){
-        Toast.makeText(getApplicationContext(),"nfc intent",Toast.LENGTH_SHORT).show();
         setIntent(intent);
         resolveIntent(intent); //add resolve intent
         super.onNewIntent(intent);
@@ -80,8 +75,9 @@ public class ReadTag extends AppCompatActivity {
         String tagId = new String(msgs[0].getRecords()[0].getType());
 
         String body = new String(msgs[0].getRecords()[0].getPayload());
+        finish();
+        MainActivity.mainActivity.setMessage(body);
 
-        Log.i("NFCMESSAGE",body);
     }
 
 }
