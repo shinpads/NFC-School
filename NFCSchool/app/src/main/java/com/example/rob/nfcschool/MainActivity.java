@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public static MainActivity mainActivity;
     private MainActivity ma = this;
     TableRow tablerowtemplate;
-
+    ArrayList<String> homework = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setMessage(String string) {
         message = string;
+        homework.add(message);
         addItem(message);
     }
     public void addItem(String message) {
@@ -202,8 +203,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
-        lp.setMargins(0,150,0,150);
+        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(0,20,0,20);
+        lp.height = TableRow.LayoutParams.WRAP_CONTENT;
+        lp.width = TableRow.LayoutParams.MATCH_PARENT;
+        lp.bottomMargin = 20;
         row.setLayoutParams(lp);
         TextView courseName = new TextView(this);
         TextView content = new TextView(this);
@@ -228,6 +232,12 @@ public class MainActivity extends AppCompatActivity {
 
         TableLayout table = (TableLayout) findViewById(R.id.readTable);
         table.addView(row);
+
+    }
+    @Override
+   private void OnPause(){
+        
+        super.onPause();
 
     }
 }
