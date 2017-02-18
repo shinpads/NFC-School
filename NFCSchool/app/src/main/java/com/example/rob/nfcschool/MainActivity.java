@@ -123,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
             }
     }
 
-    private String readFromFile() {
-        String result = "";
+    private ArrayList<String> readFromFile() {
+        ArrayList<String> result = new ArrayList<>();
 
         try {
             InputStream inputStream = openFileInput("totalMessage.txt");
@@ -134,10 +134,12 @@ public class MainActivity extends AppCompatActivity {
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
                 String tempString = "";
-                StringBuilder stringBuilder = new StringBuilder();
+                //StringBuilder stringBuilder = new StringBuilder();
 
                 while ((tempString = bufferedReader.readLine()) != null) {
-                    stringBuilder.append(tempString);
+                    //stringBuilder.append(tempString);
+                    result.add(tempString);
+                    tempString = "";
 
                     /*if((tempString = bufferedReader.readLine()) == " "){
                         //append stringBuilder to totalMessageList;
@@ -145,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     }*/
                 }
                 inputStream.close();
-                result = stringBuilder.toString();
+                //result = stringBuilder.toString();
             }
         } catch (FileNotFoundException e) {
             Log.v("MyActivity", "File not found" + e.toString());
