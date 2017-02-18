@@ -4,12 +4,13 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    static String nfcRead;
+    static String nfcRead = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         String splitMessage[] = message.split(">", 1);
         return splitMessage;
     }
-    String splitMessage[] = splitReadMessage(nfcRead);
-    String courseName = splitMessage[0];
-    String homework = splitMessage[1];
+    public static void addItem(String message){
+        Log.i("NFC MESSAGE: ", message);
+    }
 }
 
