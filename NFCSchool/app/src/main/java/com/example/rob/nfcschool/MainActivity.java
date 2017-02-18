@@ -8,23 +8,32 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    static String message;
+
+    static String nfcRead;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.floatingActionButton);
-        if(fab != null) {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        if (fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //TODO read NFC tag
-                    Intent intent = new Intent(MainActivity.this,ReadTag.class);
+                    Intent intent = new Intent(MainActivity.this, ReadTag.class);
                     startActivity(intent);
                 }
             });
         }
 
-
     }
+    private String[] splitReadMessage(String message){
+        String splitMessage[] = message.split(">", 1);
+        return splitMessage;
+    }
+    String splitMessage[] = splitReadMessage(nfcRead);
+    String courseName = splitMessage[0];
+    String homework = splitMessage[1];
 }
+
