@@ -52,34 +52,7 @@
                     android:gravity="center_horizontal"/>
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="25dp"
-                android:id="@+id/tableRow">
 
-                <TextView
-                    android:text="@string/class1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_gravity="start"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="monospace"
-                    android:textSize="18dp"
-                    android:textColor="@android:color/black"/>
-
-                <TextView
-                    android:text="@string/work1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:fontFamily="monospace"
-                    android:textSize="18dp"
-                    android:textColor="@android:color/black"
-                    android:id="@+id/textView"
-                    android:layout_weight="1"/>
-            </TableRow>
 
 
 

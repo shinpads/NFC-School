@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         tableLayout = (TableLayout) findViewById(R.id.readTable);
-        tablerowtemplate = (TableRow) findViewById(R.id.tableRow);
         if (fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -159,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
         message = string;
         addItem(message);
     }
-
     public void addItem(String message) {
         Log.i("NFC MESSAGE: ", message);
         String[] splitMsg = splitReadMessage(message);
@@ -171,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ma);
 
                 builder.setTitle("Confirm");
-                builder.setMessage("Are you sure?");
+                builder.setMessage("Are you sure you want to delete?");
 
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
@@ -200,17 +198,20 @@ public class MainActivity extends AppCompatActivity {
         TextView content = new TextView(this);
         TableRow.LayoutParams clp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
         TableRow.LayoutParams clp2 = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-        clp.gravity = Gravity.START;
-        clp2.gravity = Gravity.START;
+        clp.gravity = Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL;
+        clp2.gravity = Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL;
         clp.column = 2;
         content.setText(splitMsg[1]);
         content.setTextSize(12);
         content.setLayoutParams(clp);
+        content.setPadding(0,10,0,10);
+        content.setBackgroundColor(12);
         courseName.setText(splitMsg[0]);
         courseName.setTextSize(20);
         courseName.setTypeface(null, Typeface.BOLD);
         clp2.column = 1;
         courseName.setLayoutParams(clp2);
+        courseName.setPadding(0,10,0,10);
         row.addView(courseName);
         row.addView(content);
         TableLayout table = (TableLayout) findViewById(R.id.readTable);
