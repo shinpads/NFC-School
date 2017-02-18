@@ -8,6 +8,8 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 
 
@@ -201,6 +203,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
+        lp.setMargins(0,150,0,150);
+        row.setLayoutParams(lp);
         TextView courseName = new TextView(this);
         TextView content = new TextView(this);
         TableRow.LayoutParams clp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
@@ -212,15 +216,16 @@ public class MainActivity extends AppCompatActivity {
         content.setTextSize(12);
         content.setLayoutParams(clp);
         content.setPadding(0,10,0,10);
-        content.setBackgroundColor(12);
         courseName.setText(splitMsg[0]);
         courseName.setTextSize(20);
         courseName.setTypeface(null, Typeface.BOLD);
         clp2.column = 1;
         courseName.setLayoutParams(clp2);
         courseName.setPadding(0,10,0,10);
+        row.setBackgroundColor(Color.parseColor("#D79B9B9B"));
         row.addView(courseName);
         row.addView(content);
+
         TableLayout table = (TableLayout) findViewById(R.id.readTable);
         table.addView(row);
 
