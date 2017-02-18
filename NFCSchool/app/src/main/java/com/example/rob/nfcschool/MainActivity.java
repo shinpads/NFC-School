@@ -6,6 +6,7 @@ import android.content.Context;
 import android.app.ActionBar;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 
@@ -13,6 +14,7 @@ import android.graphics.Typeface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -166,7 +168,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //remove if tapped:
-                ((ViewManager)row.getParent()).removeView(row);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ma);
+
+                builder.setTitle("Confirm");
+                builder.setMessage("Are you sure?");
+
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        ((ViewManager)row.getParent()).removeView(row);
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
+
             }
         });
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
