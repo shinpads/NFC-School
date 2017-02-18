@@ -20,7 +20,7 @@ public class Choice_activity extends AppCompatActivity {
             public void onClick(View v) {
                 //GO TO TEACHER PAGE
                 Intent intent = new Intent(Choice_activity.this,TeachMain.class);
-                startActivity(intent);
+               startActivity(intent);
                 finish();
             }
         });

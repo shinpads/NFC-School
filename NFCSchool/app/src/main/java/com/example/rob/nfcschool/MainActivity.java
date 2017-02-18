@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         //TODO LOAD INFO FROM TEXT FILE
-        Log.i("Load file: ", readFromFile());
+        //Log.i("Load file: ", readFromFile());
     }
     
     private String[] splitReadMessage(String message) {
