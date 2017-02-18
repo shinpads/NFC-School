@@ -229,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
         homeworkRow.add(row);
         row.addView(courseName);
         row.addView(content);
+        row.setPadding(40,20,40,20);
 
         TableLayout table = (TableLayout) findViewById(R.id.readTable);
         table.addView(row,lp);
