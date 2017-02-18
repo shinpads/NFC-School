@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private MainActivity ma = this;
     TableRow tablerowtemplate;
     ArrayList<String> homework = new ArrayList<String>();
+    ArrayList<TableRow> homeworkRow = new ArrayList<TableRow>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -164,8 +165,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setMessage(String string) {
+        homework.add(string);
         message = string;
-        homework.add(message);
         addItem(message);
     }
     public void addItem(String message) {
@@ -184,6 +185,11 @@ public class MainActivity extends AppCompatActivity {
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
+                        int pos = homeworkRow.indexOf(row);
+                        homework.remove(pos);
+                        for(String x : homework){
+                            Log.i("homework: ", x);
+                        }
                         ((ViewManager)row.getParent()).removeView(row);
                         dialog.dismiss();
                     }
@@ -208,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
         lp.height = TableRow.LayoutParams.WRAP_CONTENT;
         lp.width = TableRow.LayoutParams.MATCH_PARENT;
         lp.bottomMargin = 20;
-        row.setLayoutParams(lp);
         TextView courseName = new TextView(this);
         TextView content = new TextView(this);
         TableRow.LayoutParams clp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
@@ -227,16 +232,18 @@ public class MainActivity extends AppCompatActivity {
         courseName.setLayoutParams(clp2);
         courseName.setPadding(0,10,0,10);
         row.setBackgroundColor(Color.parseColor("#D79B9B9B"));
+        homeworkRow.add(row);
         row.addView(courseName);
         row.addView(content);
 
         TableLayout table = (TableLayout) findViewById(R.id.readTable);
-        table.addView(row);
+        table.addView(row,lp);
 
     }
     @Override
-   private void OnPause(){
-        
+   public void onPause(){
+       Log.i("SAVE TO TEXT", "SAVING...?");
+
         super.onPause();
 
     }
