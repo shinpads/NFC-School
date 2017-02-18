@@ -110,12 +110,12 @@ public class MainActivity extends AppCompatActivity {
     private void writeToFile(ArrayList<String> myData) {
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("totalMessage.txt", Context.MODE_PRIVATE));
+            BufferedWriter writer = new BufferedWriter(outputStreamWriter);//new OutputStreamWriter(System.out)
             for(String i : myData){
-                BufferedWriter writer = new BufferedWriter(outputStreamWriter); //new OutputStreamWriter(System.out)
                 writer.write(i);
                 writer.newLine();
-                writer.close();
-                }
+            }
+            writer.close();
             } catch (Exception e) {
                 Log.e("text writing",e.getMessage());
             }
