@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -160,7 +161,14 @@ public class MainActivity extends AppCompatActivity {
     public void addItem(String message) {
         Log.i("NFC MESSAGE: ", message);
         String[] splitMsg = splitReadMessage(message);
-        TableRow row = new TableRow(this);
+        final TableRow row = new TableRow(this);
+        row.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //remove if tapped:
+                ((ViewManager)row.getParent()).removeView(row);
+            }
+        });
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
         TextView courseName = new TextView(this);
         TextView content = new TextView(this);
