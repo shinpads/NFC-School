@@ -11,18 +11,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.rob.nfcschool.teachMain">
 
-    <EditText
-        android:id="@+id/courseField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/course"
-        android:layout_marginTop="10dp"/>
+    <Spinner
+        android:id="@+id/courseSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:spinnerMode="dropdown"
+        android:entries="@array/course_array">
+    </Spinner>
 
     <EditText
+        android:id="@+id/hwField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:layout_below="@id/courseField"
+        android:layout_below="@id/courseSpinner"
         android:hint="@string/hw"
         android:scrollbars="vertical"
         android:lines="8"
@@ -44,6 +46,21 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:id="@+id/floatingActionButtonUp"
+        app:backgroundTint="@color/colorPrimaryDark" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/plus"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/floatingActionButtonAdd"
         app:backgroundTint="@color/colorPrimaryDark" />
 
 </RelativeLayout>

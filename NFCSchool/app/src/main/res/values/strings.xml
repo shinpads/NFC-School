@@ -15,5 +15,14 @@
     <string name="roachTag">Please approach an NFC tag</string>
     <string name="course">Course</string>
     <string name="hw">Homework</string>
+    <string name="spinner_header">Courses</string>
+
+    <string-array name="course_array">
+        <item>Physics</item>
+        <item>Clowns</item>
+        <item>Nepal</item>
+        <item>Flowers</item>
+        <item>Electronic</item>
+    </string-array>
 
 </resources>
