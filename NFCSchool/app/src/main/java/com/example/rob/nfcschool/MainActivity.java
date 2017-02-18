@@ -135,10 +135,10 @@ public class MainActivity extends AppCompatActivity {
                 while ((tempString = bufferedReader.readLine()) != null) {
                     stringBuilder.append(tempString);
 
-                    if((tempString = bufferedReader.readLine()) == " "){
+                    /*if((tempString = bufferedReader.readLine()) == " "){
                         //append stringBuilder to totalMessageList;
                         //stringBuilder = "";
-                    }
+                    }*/
                 }
                 inputStream.close();
                 result = stringBuilder.toString();
