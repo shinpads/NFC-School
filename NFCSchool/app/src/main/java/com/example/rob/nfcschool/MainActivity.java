@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
    public void onPause(){
        Log.i("SAVE TO TEXT", "SAVING...?");
-
+        writeToFile(homework);
         super.onPause();
 
     }
