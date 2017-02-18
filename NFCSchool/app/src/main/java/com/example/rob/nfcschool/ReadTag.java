@@ -76,7 +76,7 @@ public class ReadTag extends AppCompatActivity {
 
         String body = new String(msgs[0].getRecords()[0].getPayload());
         finish();
-        MainActivity.addItem(body);
+        MainActivity.mainActivity.setMessage(body);
 
     }
 
