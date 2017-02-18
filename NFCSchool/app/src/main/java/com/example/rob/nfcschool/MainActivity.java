@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    List totalMessage = new ArrayList();
 
     private String[] splitReadMessage(String message) {
         String splitMessage[] = new String[2];
@@ -99,20 +100,26 @@ public class MainActivity extends AppCompatActivity {
         }
         splitMessage[0] = part1;
         splitMessage[1] = part2;
+        totalMessage.add(splitMessage[1]);
         Log.i("split message", splitMessage[0]);
         return splitMessage;
     }
 
-    private void writeToFile(String myData) {
+
+
+    private void writeToFile(ArrayList<String> myData) {
         try {
             //String[] myDataList = myData.split(" ");
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("totalMessage.txt", Context.MODE_PRIVATE));
-            outputStreamWriter.write(myData);
-            //BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-            /*for (String word: myDataList) {
+            for(String i : myData){
+                outputStreamWriter.write(i);
+                //BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+                /*for (String word: myDataList) {
                 writer.write(myDataList);
                 writer.newLine();
             }*/
+            }
+
 
             outputStreamWriter.close();
             //writer.close();
