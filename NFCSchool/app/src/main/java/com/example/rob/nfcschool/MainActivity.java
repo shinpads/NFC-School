@@ -5,6 +5,11 @@ import android.content.Context;
 
 import android.app.ActionBar;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Typeface;
+
+
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
@@ -12,8 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-
 import android.view.Gravity;
+import android.view.LayoutInflater;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +33,7 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -39,15 +45,16 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private GoogleApiClient client;
     TableLayout tableLayout;
     static String nfcRead = "";
-    private String message ="";
+    private String message = "";
     public static MainActivity mainActivity;
     private MainActivity ma = this;
+    TableRow tablerowtemplate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         tableLayout = (TableLayout) findViewById(R.id.readTable);
+        tablerowtemplate = (TableRow) findViewById(R.id.tableRow);
         if (fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -70,19 +78,42 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    ArrayList<String> messageList = new ArrayList<String>();
 
     private String[] splitReadMessage(String message) {
-        String splitMessage[] = message.split(">", 1);
-        messageList.add(splitMessage[1]);
+        String splitMessage[] = new String[2];
+        String part1 = "";
+        String part2 = "";
+        int i = 4;
+        char x = '-';
+        while (x != '>') {
+            part1 += message.charAt(i);
+
+            i++;
+            x = message.charAt(i);
+
+        }
+        for (int b = i + 1; b < message.length(); b++) {
+            part2 += message.charAt(b);
+        }
+        splitMessage[0] = part1;
+        splitMessage[1] = part2;
+        Log.i("split message", splitMessage[0]);
         return splitMessage;
     }
 
     private void writeToFile(String myData) {
         try {
+            //String[] myDataList = myData.split(" ");
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("totalMessage.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(myData);
+            //BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+            /*for (String word: myDataList) {
+                writer.write(myDataList);
+                writer.newLine();
+            }*/
+
             outputStreamWriter.close();
+            //writer.close();
         } catch (IOException e) {
             Log.v("MyActivity", e.toString());
         }
@@ -103,6 +134,11 @@ public class MainActivity extends AppCompatActivity {
 
                 while ((tempString = bufferedReader.readLine()) != null) {
                     stringBuilder.append(tempString);
+
+                    /*if((tempString = bufferedReader.readLine()) == " "){
+                        //append stringBuilder to totalMessageList;
+                        //stringBuilder = "";
+                    }*/
                 }
                 inputStream.close();
                 result = stringBuilder.toString();
@@ -116,13 +152,36 @@ public class MainActivity extends AppCompatActivity {
         return result;
     }
 
-    public void setMessage(String string){
+    public void setMessage(String string) {
         message = string;
+        addItem(message);
     }
-    public void addItem(String message){
+
+    public void addItem(String message) {
         Log.i("NFC MESSAGE: ", message);
         String[] splitMsg = splitReadMessage(message);
         TableRow row = new TableRow(this);
+        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
+        TextView courseName = new TextView(this);
+        TextView content = new TextView(this);
+        TableRow.LayoutParams clp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+        TableRow.LayoutParams clp2 = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+        clp.gravity = Gravity.START;
+        clp2.gravity = Gravity.START;
+        clp.column = 2;
+        content.setText(splitMsg[1]);
+        content.setTextSize(12);
+        content.setLayoutParams(clp);
+        courseName.setText(splitMsg[0]);
+        courseName.setTextSize(20);
+        courseName.setTypeface(null, Typeface.BOLD);
+        clp2.column = 1;
+        courseName.setLayoutParams(clp2);
+        row.addView(courseName);
+        row.addView(content);
+        TableLayout table = (TableLayout) findViewById(R.id.readTable);
+        table.addView(row);
+
     }
 }
 

@@ -75,8 +75,9 @@ public class ReadTag extends AppCompatActivity {
         String tagId = new String(msgs[0].getRecords()[0].getType());
 
         String body = new String(msgs[0].getRecords()[0].getPayload());
-        finish();
         MainActivity.mainActivity.setMessage(body);
+        finish();
+
 
     }
 
