@@ -1,13 +1,17 @@
 package com.example.rob.nfcschool;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,9 +49,11 @@ public class MainActivity extends AppCompatActivity {
     public void setMessage(String string){
         message = string;
     }
-    public static void addItem(String message){
+    public void addItem(String message){
         Log.i("NFC MESSAGE: ", message);
-        TableRow tablerow = new TableRow(MainActivity.);
+        String[] splitMsg = splitReadMessage(message);
+        TableRow row = new TableRow(this);
+
 
     }
 }
