@@ -42,9 +42,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    static String nfcRead;
-
     private GoogleApiClient client;
     TableLayout tableLayout;
     static String nfcRead = "";
@@ -104,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 String tempString = "";
                 StringBuilder stringBuilder = new StringBuilder();
 
-                while ( (tempString = bufferedReader.readLine()) != null) {
+                while ((tempString = bufferedReader.readLine()) != null) {
                     stringBuilder.append(tempString);
                 }
                 inputStream.close();
@@ -117,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return result;
+    }
 
     public void setMessage(String string){
         message = string;
@@ -125,9 +123,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("NFC MESSAGE: ", message);
         String[] splitMsg = splitReadMessage(message);
         TableRow row = new TableRow(this);
-
-
-
     }
 }
 
