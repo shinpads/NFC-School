@@ -17,6 +17,7 @@
     <string name="hw">Homework</string>
     <string name="spinner_header">Courses</string>
     <string name="newCourse">Add New Course</string>
+    <string name="work">Work</string>
 
     <string-array name="course_array">
         <item>Physics</item>
