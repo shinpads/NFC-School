@@ -27,6 +27,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     TableRow tablerowtemplate;
     ArrayList<String> homework = new ArrayList<String>();
     ArrayList<TableRow> homeworkRow = new ArrayList<TableRow>();
+    ArrayList<TextView> spaces = new ArrayList<TextView>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -181,6 +183,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         int pos = homeworkRow.indexOf(row);
                         homework.remove(pos);
+                        TextView space2Delete = spaces.get(pos);
+                        ((ViewManager)space2Delete.getParent()).removeView(space2Delete);
+                        spaces.remove(pos);
                         for(String x : homework){
                             Log.i("homework: ", x);
                         }
@@ -230,9 +235,10 @@ public class MainActivity extends AppCompatActivity {
         row.addView(courseName);
         row.addView(content);
         row.setPadding(40,20,40,20);
-
         TableLayout table = (TableLayout) findViewById(R.id.readTable);
-        //table.addView(new TextView(this));
+        TextView space = new TextView(this);
+        spaces.add(space);
+        table.addView(space);
         table.addView(row,lp);
 
     }
