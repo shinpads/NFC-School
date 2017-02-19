@@ -186,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
                         TextView space2Delete = spaces.get(pos);
                         ((ViewManager)space2Delete.getParent()).removeView(space2Delete);
                         spaces.remove(pos);
+                        homeworkRow.remove(pos);
                         for(String x : homework){
                             Log.i("homework: ", x);
                         }
