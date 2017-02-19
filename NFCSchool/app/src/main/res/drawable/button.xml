@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
-    <corners
-        android:radius="35dp" />
+ xmlns:android="http://schemas.android.com/apk/res/android">
 
+<<<<<<< HEAD
     <solid
         android:color="@color/colorAccent"/>
 
@@ -11,3 +10,5 @@
         android:height="50dp"/>
 
 </shape>
+=======
+>>>>>>> origin/master

@@ -11,6 +11,7 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 //ACTIVITY TO READ TAG AND GET INFORMATION
 public class ReadTag extends AppCompatActivity {
@@ -20,15 +21,35 @@ public class ReadTag extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_tag);
         adapter = NfcAdapter.getDefaultAdapter(this);
+
         if(adapter == null){
-            //TODO device does not have NFC
+            Toast.makeText(getApplicationContext(),"NFC NOT ENABLED",Toast.LENGTH_SHORT).show();
+        }
+        if(adapter != null && adapter.isEnabled()){
+            Toast.makeText(getApplicationContext(),"NFC IS READY",Toast.LENGTH_SHORT).show();
         }
 
     }
     @Override
     public void onNewIntent(Intent intent){
+        Toast.makeText(getApplicationContext(),"nfc intent",Toast.LENGTH_SHORT).show();
         setIntent(intent);
         resolveIntent(intent); //add resolve intent
+        super.onNewIntent(intent);
+    }
+    @Override
+    public void onResume(){
+        Intent intent = new Intent(this,ReadTag.class);
+        intent.addFlags(Intent.FLAG_RECEIVER_REPLACE_PENDING);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);
+        IntentFilter[] intentFilters = new IntentFilter[]{};
+        adapter.enableForegroundDispatch(this,pendingIntent,intentFilters,null);
+        super.onResume();
+    }
+    @Override
+    public void onPause(){
+        adapter.disableForegroundDispatch(this);
+        super.onPause();
     }
     private void resolveIntent(Intent intent) {
         String action = intent.getAction();
@@ -44,8 +65,9 @@ public class ReadTag extends AppCompatActivity {
                 for (int i = 0; i < rawMsgs.length; i++) {
                     msgs[i] = (NdefMessage) rawMsgs[i];
                 }
+                buildTagViews(msgs);
             }
-            buildTagViews(msgs);
+
         }
     }
 
@@ -58,6 +80,8 @@ public class ReadTag extends AppCompatActivity {
         String tagId = new String(msgs[0].getRecords()[0].getType());
 
         String body = new String(msgs[0].getRecords()[0].getPayload());
+
+        Log.i("NFCMESSAGE",body);
     }
 
 }
