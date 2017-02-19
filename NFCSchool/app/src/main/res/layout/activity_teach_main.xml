@@ -29,10 +29,10 @@
         android:layout_below="@id/courseField"
         android:hint="@string/hw"
         android:scrollbars="vertical"
-        android:lines="8"
-        android:minLines="6"
+        android:lines="4"
+        android:minLines="1"
         android:gravity="top|left"
-        android:maxLines="10"
+        android:maxLines="8"
         android:layout_marginTop="40dp"/>
 
     <android.support.design.widget.FloatingActionButton
