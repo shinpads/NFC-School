@@ -4,10 +4,10 @@
         android:radius="35dp" />
 
     <solid
-        android:color="@color/colorPrimary"/>
+        android:color="@color/colorAccent"/>
 
     <size
         android:width="270dp"
-        android:height="40dp"/>
+        android:height="50dp"/>
 
 </shape>

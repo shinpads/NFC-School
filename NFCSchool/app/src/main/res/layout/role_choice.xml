@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:src="@drawable/hackLogo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="7dp"
+        android:layout_weight="0.2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/roleChoice"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textSize="45dp"
+        android:textColor="@android:color/black"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="20dp">
+
+
+    </TextView>
+
+    <Button
+        android:text="@string/studentBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/studentBtn"
+        android:background="@drawable/button"
+        android:fontFamily="monospace"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:layout_margin="25dp"/>
+    <Button
+        android:text="@string/teacherBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacherBtn"
+        android:background="@drawable/button"
+        android:fontFamily="monospace"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:layout_margin="25dp"/>
+
+</LinearLayout>

@@ -9,5 +9,8 @@
     <string name="work2">pg34</string>
     <string name="work3">pg24</string>
     <string name="work4">pg14</string>
+    <string name="roleChoice">Hello!\nWho Are You?</string>
+    <string name="teacherBtn">Teacher</string>
+    <string name="studentBtn">Student</string>
 
 </resources>
