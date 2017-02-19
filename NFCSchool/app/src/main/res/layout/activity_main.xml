@@ -15,123 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<<<<<<< HEAD
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/readTable"
-        android:stretchColumns="2">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="15dp">
-
-            <TextView
-                android:text="@string/class1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="start"
-                android:fontFamily="monospace"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:text="@string/work1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="start"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="monospace"
-                android:textSize="18dp"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="15dp">
-
-            <TextView
-                android:text="@string/class2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="start"
-                android:fontFamily="monospace"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:text="@string/work2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="start"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="monospace"
-                android:textSize="18dp"/>
-
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="15dp">
-
-            <TextView
-                android:text="@string/class3"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="start"
-                android:fontFamily="monospace"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:text="@string/work3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="start"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="monospace"
-                android:textSize="18dp"/>
-
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="15dp">
-
-            <TextView
-                android:text="@string/class4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="start"
-                android:fontFamily="monospace"
-                android:textSize="18dp"/>
-
-            <TextView
-                android:text="@string/work4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="start"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="monospace"
-                android:textSize="18dp"/>
-
-
-        </TableRow>
-
-
-
-    </TableLayout>
-=======
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -227,7 +110,6 @@
 
 
         </TableLayout>
->>>>>>> origin/master
 
     </ScrollView>
 
