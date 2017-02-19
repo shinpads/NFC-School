@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="135dp"
-        android:src="@drawable/hackLogo"
+        android:src="@drawable/hacklogo"
         android:layout_gravity="center_horizontal"
         android:layout_marginRight="7dp"
         android:layout_weight="0.2" />
