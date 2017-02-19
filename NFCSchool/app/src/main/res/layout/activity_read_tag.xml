@@ -11,17 +11,4 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.rob.nfcschool.ReadTag">
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="normal"
-        app:srcCompat="@drawable/fab_down"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/floatingActionButton" />
 </RelativeLayout>
