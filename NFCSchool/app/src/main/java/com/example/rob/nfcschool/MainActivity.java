@@ -77,7 +77,12 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         //TODO LOAD INFO FROM TEXT FILE
-        //Log.i("Load file: ", readFromFile());
+        ArrayList<String> homeworkList = new ArrayList<String>();
+        homeworkList = readFromFile();
+        for(String x: homeworkList){
+            setMessage(x);
+        }
+
     }
     
     private String[] splitReadMessage(String message) {

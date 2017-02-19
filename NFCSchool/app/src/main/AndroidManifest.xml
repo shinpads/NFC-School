@@ -32,10 +32,11 @@
         <activity
             android:name=".ReadTag"
             android:screenOrientation="portrait" />
-        <activity android:name=".Choice_activity"
-            android:exported="true"/>
-        <activity android:name=".TeachMain"
-            />
+        <activity
+            android:name=".Choice_activity"
+            android:exported="true" />
+        <activity android:name=".TeachMain" />
+        <activity android:name=".WriteTag"></activity>
     </application>
 
 </manifest>
